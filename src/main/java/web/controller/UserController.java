@@ -12,13 +12,13 @@ import java.util.List;
 @Controller
 public class UserController {
 
-//    AnnotationConfigApplicationContext context =
-//            new AnnotationConfigApplicationContext(DBConfig.class);
-//    UserService userService = context.getBean(UserService.class);
+    UserService userService;
 
 
     @Autowired
-    UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(value = "/")
     public String getUsers(Model model) {
